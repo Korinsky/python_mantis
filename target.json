@@ -5,5 +5,16 @@
   "webadmnb": {
     "username": "localhost",
     "password": "addressbook"
+  },
+  "ftp": {
+    "host": "localhost",
+    "username": "mantis",
+    "password": "mantis"
+  },
+  "james": {
+    "host": "localhost",
+    "port": 4555,
+    "username": "root",
+    "password": "root"
   }
 }
