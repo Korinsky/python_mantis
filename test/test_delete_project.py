@@ -3,7 +3,6 @@ import random
 
 
 def test_del_project(app):
-    app.session.login("administrator", "root")
     old_projects = app.project.get_project_list()
     if len(old_projects) == 0:
         app.project.create_project(Project(name="Autotest" + str(random.randint(0, 10000))))

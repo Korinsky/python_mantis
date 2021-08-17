@@ -28,6 +28,7 @@ def app(request, config):
     browser = request.config.getoption("--browser")
     if fixture is None or not fixture.is_valid():
         fixture = Application(browser=browser, config=config)
+        fixture.session.login(username=config['webadmin']['username'], password=config['webadmin']['password'])
     return fixture
 
 
@@ -59,6 +60,7 @@ def restore_server_configuration(host, username, password):
 @pytest.fixture(scope="session", autouse=True)
 def stop(request):
     def fin():
+        fixture.session.ensure_logout()
         fixture.destroy()
     request.addfinalizer(fin)
     return fixture
